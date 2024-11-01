@@ -5,15 +5,14 @@ export default function Produtos (){
     const [quantidade, setQuantidade] = useState ("")
     const [button, setButton] = useState ("")
 
-    function calculo (){
-        valor * quantidade
-        setValor(valor)
-        setQuantidade(quantidade)
-    }
+
+  
     function click (){
-        setButton(calculo)
+        setButton( valor * quantidade)
     }
-    
+    function limpar (){
+        setButton("")
+    }    
 
     return( 
     <div className=""> 
@@ -32,8 +31,9 @@ export default function Produtos (){
         onChange={(ev)=>setQuantidade(ev.target.value)}
         placeholder="Insira a quantidade..." />
     </div>
-        <p className="mt-4 mb-5 text-cyan-500">Gravatinhas em estoque: 10</p>
+        <p className="mt-4 mb-5 text-cyan-500">Gravatinhas em estoque: {quantidade}</p>
         <button onClick={click}>Calcular</button>
+        <button onClick={limpar}  className="ml-3">Limpar</button>
         <p className="text-[20px] mt-[20px] mb-[5px]">Valor total em reais: {button} R$</p>
         <hr className="mt-[10px] mb-[50px]" /> 
     </div>
