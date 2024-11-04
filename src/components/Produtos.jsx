@@ -1,10 +1,10 @@
 import { useState } from "react"
 
-export default function Produtos (){
+export default function Produtos (props){
     const [valor, setValor] = useState ("")
     const [quantidade, setQuantidade] = useState ("")
     const [button, setButton] = useState ("")
-
+    
 
   
     function click (){
@@ -19,7 +19,9 @@ export default function Produtos (){
         {/* <h1>Estoque de Mercadorias DoceAlice</h1> */}
         <h3 className="text-[22px] w-[180px] mb-[10px] text-white">Tipos de Produto:</h3>
     <div className="flex">
-        <p className="text-cyan-500 mr-5 text-lg">Gravatinha</p>
+        
+        <p key={index} className="text-cyan-500 mr-5 text-lg">{props.item}</p>
+
         <input className="w-[120px] pl-2 mr-5 rounded-lg"
         type="number"
         value={valor}
@@ -31,7 +33,7 @@ export default function Produtos (){
         onChange={(ev)=>setQuantidade(ev.target.value)}
         placeholder="Insira a quantidade..." />
     </div>
-        <p className="mt-4 mb-5 text-cyan-500">Gravatinhas em estoque: {quantidade}</p>
+        <p className="mt-4 mb-5 text-cyan-500"> {quantidade}</p>
         <button onClick={click}>Calcular</button>
         <button onClick={limpar}  className="ml-3">Limpar</button>
         <p className="text-[20px] mt-[20px] mb-[5px]">Valor total em reais: {button} R$</p>
