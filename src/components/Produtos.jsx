@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Produtos (props){
+export default function Produtos ({ itens }){
     const [valor, setValor] = useState ("")
     const [quantidade, setQuantidade] = useState ("")
     const [button, setButton] = useState ("")
@@ -20,8 +20,9 @@ export default function Produtos (props){
         <h3 className="text-[22px] w-[180px] mb-[10px] text-white">Tipos de Produto:</h3>
     <div className="flex">
         
-        <p key={index} className="text-cyan-500 mr-5 text-lg">{props.item}</p>
-
+        {itens.map((item, index)=>(
+        <p key={index} className="text-cyan-500 mr-5 text-lg">{item}</p>
+))}
         <input className="w-[120px] pl-2 mr-5 rounded-lg"
         type="number"
         value={valor}
